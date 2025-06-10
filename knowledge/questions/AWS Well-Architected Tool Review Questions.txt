@@ -1,0 +1,70 @@
+AWS Well-Architected Tool Review Questions, filtered by pillar:
+
+OPERATIONAL EXCELLENCE
+1. How do you determine what your priorities are?
+2. How do you structure your organization to support your business outcomes?
+3. How does your organizational culture support your business outcomes? 
+4. How do you implement observability in your workload?
+5. How do you reduce defects, ease remediation, and improve flow into production?
+6. How do you mitigate deployment risks?
+7. How do you know that you are ready to support a workload? 
+8. How do you utilize workload observability in your organization?
+9. How do you understand the health of your operations?
+10. How do you manage workload and operations events? 
+11. How do you evolve operations?
+
+SECURITY
+1. How do you securely operate your workload? 
+2. How do you manage authentication for people and machines?
+3. How do you manage permissions for people and machines? 
+4. How do you detect and investigate security events?
+5. How do you protect your network resources?
+6. How do you protect your compute resources?
+7. How do you classify your data?
+8. How do you protect your data at rest?
+9. How do you protect your data in transit? 
+10. How do you anticipate, respond to, and recover from incidents? 
+11. How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?
+
+RELIABILITY
+1. How do you manage Service Quotas and constraints?
+2. How do you plan your network topology? 
+3. How do you design your workload service architecture?
+4. How do you design interactions in a distributed system to prevent failures?
+5. How do you design interactions in a distributed system to mitigate or withstand failures? 
+6. How do you monitor workload resources?
+7. How do you design your workload to adapt to changes in demand?
+8. How do you implement change?
+9. How do you back up data?
+10. How do you use fault isolation to protect your workload?
+11. How do you design your workload to withstand component failures?
+12. How do you test reliability?
+13. How do you plan for disaster recovery (DR)? 
+
+PERFORMANCE EFFICIENCY
+1. How do you select appropriate cloud resources and architecture for your workload? 
+2. How do you select and use compute resources in your workload?
+3. How do you store, manage, and access data in your workload?
+4. How do you select and configure networking resources in your workload?
+5. How do your organizational practices and culture contribute to performance efficiency in your workload?
+
+COST OPTIMIZATION
+1. How do you implement cloud financial management?
+2. How do you govern usage?
+3. How do you monitor your cost and usage?
+4. How do you decommission resources?
+5. How do you evaluate cost when you select services?
+6. How do you meet cost targets when you select resource type, size and number?
+7. How do you use pricing models to reduce cost?
+8. How do you plan for data transfer charges?
+9. How do you manage demand, and supply resources?
+10. How do you evaluate new services?
+11. How do you evaluate the cost of effort?
+
+SUSTAINABILITY
+1. How do you select Regions for your workload?
+2. How do you align cloud resources to your demand?
+3. How do you take advantage of software and architecture patterns to support your sustainability goals?
+4. How do you take advantage of data management policies and patterns to support your sustainability goals?
+5. How do you select and use cloud hardware and services in your architecture to support your sustainability goals?
+6. How do your organizational processes support your sustainability goals? 

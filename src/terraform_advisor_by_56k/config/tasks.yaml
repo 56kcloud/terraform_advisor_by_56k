@@ -1,0 +1,173 @@
+codebase_research_task:
+  description: >
+    As a Terraform Infrastructure Analyst, analyze the codebase to answer this specific question: {query}
+    
+    **Your Mission:** Answer the question by examining how the current infrastructure implementation
+    addresses what's being asked. Focus on providing evidence from the code to support your answer.
+    
+    **Question-Focused Analysis Approach:**
+    1. **Answer-Oriented Infrastructure Analysis:**
+       - Identify the resources, modules, and configurations that demonstrate HOW the question is currently addressed
+       - Find evidence in the code that shows the current approach to what's being asked
+       - Document the specific implementations that answer the question
+       - Focus on configurations that directly relate to answering the question
+    
+    2. **Targeted GithubSearchTool Strategy:**
+       **Available Search Capabilities:** Use GithubSearchTool to search through Terraform configurations
+       **Search to Answer the Question:**
+       - Start with semantic search using the question: `{query}`
+       - **Terraform files:** Search for `.tf` files containing key terms from the question
+       - **Resource blocks:** Look for specific resource types and configurations mentioned in the question
+       - **Module usage:** Find how modules address the specific question being asked
+       - Search for evidence that answers the specific question being asked
+    
+    3. **Evidence-Based Code Analysis:**
+       - Examine code that provides evidence for answering the question
+       - Document how current configurations address what's being asked
+       - Identify gaps where the question cannot be fully answered by current implementation
+       - Focus on patterns and practices that demonstrate the answer to the question
+    
+    **Answer Focus:** Use the codebase to answer the specific question. Provide concrete evidence
+    from the infrastructure code that supports your answer.
+
+  expected_output: >
+    A clear answer to the question {query} based on codebase analysis:
+    
+    **1. Direct Answer:**
+    - Clear response to the question based on current infrastructure
+    - Specific examples from the code that demonstrate the answer
+    - Current approach/methodology shown in the implementation
+    
+    **2. Supporting Evidence:**
+    - Code snippets and configurations that support the answer
+    - Resource definitions that demonstrate current practices
+    - Variables, modules, and patterns that show how the question is addressed
+    
+    **3. Implementation Details:**
+    - Specific ways the infrastructure currently handles what's asked in the question
+    - Configuration choices that relate to answering the question
+    - Any gaps where the current implementation doesn't fully address the question
+    
+    **Note:** Focus on answering the specific question using evidence from the codebase.
+    Avoid general analysis not directly related to the question being asked.
+
+  agent: terraform_agent
+
+aws_research_task:
+  description: >
+    As an AWS Solutions Architect, research AWS guidance to help answer this specific question: {query}
+    
+    **Your Mission:** Find AWS best practices, requirements, and recommendations that provide
+    the authoritative answer to the question being asked.
+    
+    **Question-Focused Requirements Research:**
+    1. **Answer-Oriented AWS Guidance:**
+       - Find AWS Well-Architected Framework guidance that directly answers the question
+       - Identify best practices that address what's being asked
+       - Locate specific AWS recommendations that answer the question
+       - Find reference architectures or patterns that demonstrate the answer
+    
+    2. **Targeted JSONSearchTool Strategy:**
+       **Available Search Capabilities:** Use JSONSearchTool to search through AWS documentation
+       **Search to Answer the Question:**
+       - Primary search using the question: `{query}`
+       - **WAF specific:** Search Well-Architected Framework documentation for guidance on the question
+       - **Service-specific:** Search for AWS services mentioned in or relevant to the question
+       - **Best practices:** Find implementation patterns that demonstrate the correct answer
+       - Find documentation that directly addresses what's being asked
+    
+    3. **Answer-Focused Best Practice Extraction:**
+       - Document the AWS-recommended approach to what's asked in the question
+       - Extract specific guidance that answers the question
+       - Identify requirements and standards that relate to the question
+       - Find implementation patterns that demonstrate the correct answer
+    
+    **Answer Focus:** Provide AWS's authoritative guidance on how to properly address
+    what's being asked in the question.
+
+  expected_output: >
+    AWS guidance that answers the question {query}:
+    
+    **1. AWS-Recommended Answer:**
+    - AWS's authoritative guidance on how to address what's asked in the question
+    - Well-Architected Framework principles that answer the question
+    - Best practices that directly respond to the question
+    
+    **2. Implementation Guidance:**
+    - Specific AWS recommendations for addressing what's asked
+    - Configuration requirements that support the recommended answer
+    - Service-specific guidance relevant to answering the question
+    
+    **3. Standards and Requirements:**
+    - AWS requirements that relate to properly answering the question
+    - Compliance considerations for the area addressed by the question
+    - Performance, security, or operational standards relevant to the answer
+    
+    **Note:** Focus on AWS guidance that directly helps answer the specific question.
+    Avoid broad documentation not relevant to the question being asked.
+
+  agent: aws_agent
+
+response_task:
+  description: >
+    As a Senior Solutions Architect, synthesize the analysis to provide a comprehensive answer to: {query}
+    
+    **Your Mission:** Combine the current infrastructure analysis with AWS best practices to
+    provide a complete, actionable answer to the specific question being asked.
+    
+    **Question-Focused Synthesis Strategy:**
+    1. **Answer Integration:**
+       - Compare how the current implementation addresses the question vs. AWS recommendations
+       - Identify where current practices align with or differ from the recommended answer
+       - Synthesize both perspectives into a comprehensive response to the question
+       - Prioritize insights that directly answer what's being asked
+    
+    2. **Gap-to-Answer Analysis:**
+       - Assess how well the current approach answers the question
+       - Identify improvements needed to better address what's being asked
+       - Focus on changes that directly improve the answer to the question
+       - Avoid recommendations that don't relate to the specific question
+    
+    3. **Actionable Answer Development:**
+       - Provide specific recommendations that improve how the question is addressed
+       - Include implementation steps that better answer the question
+       - Focus on changes that directly impact the area being questioned
+       - Ensure all recommendations serve to better address the question
+    
+    **Answer Quality Standards:**
+    - Every recommendation must improve how the question is addressed
+    - Focus on specific, actionable improvements to answer the question better
+    - Provide clear rationale for how changes improve the answer to the question
+    - Stay focused on what's actually being asked
+
+  expected_output: >
+    A comprehensive answer to the question {query}:
+    
+    **Direct Answer to the Question:**
+    - Clear, specific response to what's being asked
+    - Current state: How the question is currently addressed in the infrastructure
+    - AWS recommended approach: How AWS suggests addressing what's asked
+    - Gap assessment: Where current approach differs from recommended answer
+    
+    **Detailed Response:**
+    - **Current Implementation:** How the infrastructure currently handles what's asked
+    - **AWS Best Practice:** The recommended approach to addressing the question
+    - **Specific Improvements:** Changes needed to better answer the question
+    - **Implementation Steps:** Actions to improve how the question is addressed
+    
+    **Action Plan to Improve the Answer:**
+    - **Priority Changes:** Most important improvements to better address the question
+    - **Implementation Details:** Specific code/configuration changes needed
+    - **Expected Outcomes:** How these changes improve the answer to the question
+    - **Validation:** How to verify the question is better addressed after changes
+    
+    **Summary:**
+    - **Key Findings:** Main insights about how the question is currently addressed
+    - **Recommendations:** Priority actions to improve the answer to the question
+    - **Next Steps:** Immediate actions to better address what's being asked
+    
+    **Note:** All analysis and recommendations focus specifically on answering {query}.
+    Content not directly related to the question is excluded.
+    
+  agent: response_agent
+  context: [aws_research_task, codebase_research_task]  
