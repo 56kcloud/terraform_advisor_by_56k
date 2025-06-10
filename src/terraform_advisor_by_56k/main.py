@@ -43,7 +43,7 @@ def load_questions():
     questions = []
     
     # Try to load from questions.txt file
-    questions_file = "knowledge/questions.txt"
+    questions_file = "knowledge/questions/questions.txt"
     if os.path.exists(questions_file):
         try:
             with open(questions_file, 'r') as f:
