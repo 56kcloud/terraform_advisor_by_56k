@@ -22,7 +22,7 @@ Ensure you have the following installed on your system:
 Clone this repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/56kcloud/terraform_advisor_by_56k.git
 ```
 
 Navigate to your project directory and create a virtual environment and activate it:
@@ -91,7 +91,7 @@ If you want to analyze a different GitHub repository after having already run th
 
 ## AWS Well-Architected Documentation
 
-The AWS Well-Architected Framework documentation is already included in this project and available to the agent at `knowledge/aws/waf.json`. No additional setup or scraping is required.
+The AWS Well-Architected Framework documentation is already included in this project and available to the agent at `knowledge/aws/waf.json`. No additional setup is required.
 
 ## Automated Review Questions
 
