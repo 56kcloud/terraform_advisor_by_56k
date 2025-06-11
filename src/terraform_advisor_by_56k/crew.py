@@ -3,7 +3,8 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from dotenv import load_dotenv
-from crewai_tools import GithubSearchTool, JSONSearchTool
+from crewai_tools import GithubSearchTool
+from .tools import MemvidSearchTool
 
 import os
 
@@ -20,10 +21,13 @@ missing_vars = [var for var in required_env_vars if not os.getenv(var)]
 if missing_vars:
     raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}")
 
-# Validate knowledge base exists
-waf_json_path = 'knowledge/aws/waf.json'
-if not os.path.exists(waf_json_path):
-    raise FileNotFoundError(f"AWS Well-Architected Framework knowledge base not found at: {waf_json_path}")
+# Validate memvid knowledge base exists
+waf_video_path = 'knowledge/aws/waf_docs.mp4'
+waf_index_path = 'knowledge/aws/waf_docs_index.json'
+if not os.path.exists(waf_video_path):
+    raise FileNotFoundError(f"AWS Well-Architected Framework video not found at: {waf_video_path}")
+if not os.path.exists(waf_index_path):
+    raise FileNotFoundError(f"AWS Well-Architected Framework index not found at: {waf_index_path}")
 
 # Initialize the tool for semantic searches within a specific GitHub repository
 try:
@@ -49,27 +53,15 @@ try:
 except Exception as e:
     raise ValueError(f"Failed to initialize GithubSearchTool: {e}")
 
-# Search through a single JSON file
+# Initialize memvid search tool for AWS documentation
 try:
-    json_search_tool = JSONSearchTool(
-        json_path=waf_json_path,
-        config=dict(
-            llm=dict(
-                provider="openai",
-                config=dict(
-                    model=os.getenv("TOOL_MODEL"),
-                ),
-            ),
-            embedder=dict(
-                provider="openai",
-                config=dict(
-                    model=os.getenv("EMBEDDING_MODEL"),
-                ),
-            ),
-        )
+    memvid_tool_wrapper = MemvidSearchTool(
+        video_path=waf_video_path,
+        index_path=waf_index_path
     )
+    memvid_search_tool = memvid_tool_wrapper.tool
 except Exception as e:
-    raise ValueError(f"Failed to initialize JSONSearchTool: {e}")
+    raise ValueError(f"Failed to initialize MemvidSearchTool: {e}")
 
 
 # If you want to run a snippet of code before or after the crew starts,
@@ -111,10 +103,10 @@ class terraform_advisor_by_56k():
             verbose=True,
             max_iter=15,  # Increased for thorough documentation search
             max_retry_limit=3,  # Standardized retry limit
-            tools=[json_search_tool],
+            tools=[memvid_search_tool],
             allow_delegation=False,  # Focus on specific tool usage
             llm=os.getenv("MODEL"),
-            system_message="You specialize in researching AWS best practices to answer specific questions. Always search for authoritative AWS guidance before providing recommendations."
+            system_message="You specialize in researching AWS best practices using memvid-powered semantic search to answer specific questions. Always search for authoritative AWS guidance before providing recommendations."
         )
     
     @agent
