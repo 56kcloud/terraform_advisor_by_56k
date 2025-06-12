@@ -76,12 +76,9 @@ One innovative aspect of our solution is the integration of **[Memvid](https://g
 
 #### 🎥 The AWS Knowledge Base in Action
 
-<video width="100%" controls>
-  <source src="https://github.com/56kcloud/terraform_advisor_by_56k/raw/main/knowledge/aws/waf_docs.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![AWS Well-Architected Framework Video Knowledge Base](/blogpost/waf_docs.gif)
 
-*Above: The entire AWS Well-Architected Framework documentation encoded using memvid technology. This single file enables instant semantic search across thousands of pages of AWS best practices - each frame contains encoded documentation chunks that can be searched semantically.*
+*The entire AWS Well-Architected Framework documentation encoded using memvid technology. Each frame contains encoded documentation chunks that enable instant semantic search across thousands of pages of AWS best practices.*
 
 #### 3. Model-Agnostic Architecture
 
@@ -194,7 +191,7 @@ The system uses this YAML-driven approach to ensure each agent:
 4. **Produces Structured Output**: Expected output format defined for each task
 5. **Maintains Context**: The response task explicitly depends on both research tasks
 
-![Execution Excerpt](/execution_excerpt.png)
+![Execution Excerpt](/blogpost/execution_excerpt.png)
 
 *Above: Example of how the three agents collaborate to answer a specific infrastructure question using their specialized tools.*
 
