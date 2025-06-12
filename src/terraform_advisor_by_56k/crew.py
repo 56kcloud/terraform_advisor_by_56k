@@ -75,6 +75,9 @@ class terraform_advisor_by_56k():
     agents: List[BaseAgent]
     tasks: List[Task]
     
+    # Paths to YAML configuration files
+    agents_config = 'config/agents.yaml'
+    tasks_config = 'config/tasks.yaml'
 
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
