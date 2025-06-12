@@ -59,6 +59,7 @@ GITHUB_TOKEN: "your-github-token"
 ```
 
 The system then:
+
 - Searches for code patterns relevant to your specific questions
 - Identifies resources and configurations that address what you're asking
 - Documents current implementation approaches
@@ -69,6 +70,7 @@ The system then:
 One innovative aspect of our solution is the integration of **[Memvid](https://github.com/Olow304/memvid)** - a technology that enables efficient semantic search through large documentation sets.
 
 **How Memvid Works:**
+
 - Encodes AWS Well-Architected Framework documentation into video format
 - Enables fast semantic search across thousands of pages of AWS guidance
 - Works offline once the knowledge base is prepared
@@ -78,7 +80,7 @@ One innovative aspect of our solution is the integration of **[Memvid](https://g
 
 ![AWS Well-Architected Framework Video Knowledge Base](/blogpost/waf_docs.gif)
 
-*The entire AWS Well-Architected Framework documentation encoded using memvid technology. Each frame contains encoded documentation chunks that enable instant semantic search across thousands of pages of AWS best practices.*
+*An excerpt from the AWS Well-Architected Framework documentation encoded using memvid technology. Each frame contains encoded documentation chunks that enable instant semantic search across thousands of pages of AWS best practices.*
 
 #### 3. Model-Agnostic Architecture
 
@@ -102,6 +104,7 @@ config=dict(
 ```
 
 This flexibility allows organizations to:
+
 - **Balance Cost and Quality**: Use appropriate models for different analysis depths
 - **Maintain Privacy**: Use local models for sensitive codebases
 - **Scale Efficiently**: Adjust model complexity based on question complexity
@@ -186,7 +189,7 @@ response_task:
 The system uses this YAML-driven approach to ensure each agent:
 
 1. **Knows Its Role**: Clear role definition and expertise areas
-2. **Focuses on the Question**: All descriptions reference `{query}` parameter 
+2. **Focuses on the Question**: All descriptions reference `{query}` parameter
 3. **Uses Specific Tools**: Each agent configured with appropriate search tools
 4. **Produces Structured Output**: Expected output format defined for each task
 5. **Maintains Context**: The response task explicitly depends on both research tasks
@@ -198,24 +201,28 @@ The system uses this YAML-driven approach to ensure each agent:
 ## Why This Approach Works
 
 ### 1. **Question-Focused Analysis**
+
 - Avoids generic recommendations by focusing on what you actually asked
 - Provides evidence-based answers using your actual code
 - Combines current state analysis with authoritative best practices
 - Delivers actionable improvements specific to your question
 
 ### 2. **Repository Flexibility**
+
 - Works with any Terraform repository structure
 - Analyzes both public and private repositories  
 - Supports different Terraform patterns and module structures
 - No vendor lock-in or proprietary requirements
 
 ### 3. **AI Model Adaptability**
+
 - Choose models based on budget and accuracy requirements
 - Support for multiple AI providers (OpenAI, Anthropic, local models)
 - Separate model configuration for different components
 - Easy to upgrade as new models become available
 
 ### 4. **Efficient Knowledge Access**
+
 - Fast semantic search through comprehensive AWS documentation
 - Offline-capable analysis once knowledge base is prepared
 - Always up-to-date AWS guidance when knowledge base is refreshed
